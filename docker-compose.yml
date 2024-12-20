@@ -1,0 +1,25 @@
+services:
+  libra:
+    image: libra:2
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - "DB_NAME=postgres"
+      - "DB_USER=postgres"
+      - "DB_PASSWORD=postgres"
+    depends_on:
+      - database
+    links:
+      - database
+
+  database:
+    image: postgres:17.2-alpine
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_DB=postgres"
+      - "POSTGRES_USER=postgres"
+      - "POSTGRES_PASSWORD=postgres"
+    ports:
+      - "5432:5432"

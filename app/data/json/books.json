@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "title": "The Alchemist",
+    "author": "Paulo Coelho",
+    "datePublication": "1988-05-01",
+    "description": "A philosophical book that tells the story of Santiago, a shepherd boy who dreams of finding a treasure located near the Egyptian pyramids.",
+    "inStock": false,
+    "readerId": 3,
+    "dateReturn": "2025-01-01"
+  },
+  {
+    "id": 2,
+    "title": "Red Dragon",
+    "author": "Thomas Harris",
+    "datePublication": "1981-02-14",
+    "description": "THE GREAT BOOK OF THE GREATEST OF THE MASTERS OF THE GENRE. THE BEGINNING OF THE STORY OF THE GREAT AND TERRIBLE HANNIBAL LECTER. A novel that precedes the cult book: The Silence of the Lambs. The famous film adaptation starring Anthony Hopkins.",
+    "inStock": true,
+    "readerId": null,
+    "dateReturn": null
+  },
+  {
+    "id": 3,
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "datePublication": "1925-04-10",
+    "description": "A novel set in the Roaring Twenties that tells the story of Jay Gatsby's unrequited love for Daisy Buchanan.",
+    "inStock": false,
+    "readerId": 3,
+    "dateReturn": "2024-12-26"
+  },
+  {
+    "id": 5,
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "datePublication": "1960-07-11",
+    "description": "A novel about the serious issues of rape and racial inequality, narrated by a young girl named Scout Finch.",
+    "inStock": false,
+    "readerId": 2,
+    "dateReturn": "2024-11-15"
+  },
+  {
+    "id": 6,
+    "title": "The Catcher in the Rye",
+    "author": "J.D. Salinger",
+    "datePublication": "1951-07-16",
+    "description": "A story about teenage angst and alienation, narrated by the cynical Holden Caulfield.",
+    "inStock": false,
+    "readerId": 3,
+    "dateReturn": "2024-10-20"
+  },
+  {
+    "id": 7,
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "datePublication": "9999-08-31",
+    "description": "A dystopian novel that explores a technologically advanced future where society is engineered for maximum happiness.",
+    "inStock": true,
+    "readerId": null,
+    "dateReturn": null
+  },
+  {
+    "id": 8,
+    "title": "Fahrenheit 451",
+    "author": "Ray Bradbury",
+    "datePublication": "1953-10-19",
+    "description": "A novel about a future society where books are outlawed and 'firemen' burn any that are found.",
+    "inStock": false,
+    "readerId": 4,
+    "dateReturn": "2024-09-15"
+  },
+  {
+    "id": 9,
+    "title": "The Hobbit",
+    "author": "J.R.R. Tolkien",
+    "datePublication": "1937-09-21",
+    "description": "A fantasy novel that follows the journey of Bilbo Baggins as he embarks on an adventure with a group of dwarves.",
+    "inStock": false,
+    "readerId": 2,
+    "dateReturn": "2024-12-26"
+  },
+  {
+    "id": 10,
+    "title": "Book about what?",
+    "author": "Ibragimov Edgar",
+    "datePublication": "2003-12-22",
+    "description": "e.t.c.",
+    "inStock": true,
+    "readerId": null,
+    "dateReturn": null
+  }
+]

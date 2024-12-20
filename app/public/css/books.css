@@ -1,0 +1,535 @@
+html {
+  background-image: url("../images/libra.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+  overflow: auto;
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*Layout components */
+.page__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  position: fixed;
+  top: -70px;
+  left: 40px;
+  z-index: 1000;
+  width: 330px;
+  height: 165px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Inria Serif", serif;
+  font-weight: normal;
+  font-size: 120px;
+  color: #c02828;
+}
+
+@media screen and (max-width: 1200px) {
+  .title {
+    display: none;
+  }
+}
+
+@media screen and (max-height: 800px) {
+  .title {
+    display: none;
+  }
+}
+
+.button__logout {
+  position: fixed;
+  top: 30px;
+  right: 40px;
+  z-index: 1000;
+  background: rgba(247, 244, 244, 0.8);
+  border-radius: 15px;
+  font-family: "Inria Serif", serif;
+  font-size: 1.6rem;
+  color: #645555;
+  height: 50px;
+  width: 120px;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button__logout:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.button__logout:active {
+  background-color: rgba(223, 223, 223, 0.8);
+}
+/* Конец блока стилей для layout.pug */
+
+/* Начало блока стилей для index.pug */
+.container {
+  min-height: 400px;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  background: rgba(247, 244, 244, 0.8);
+  border-radius: 20px;
+  padding: 15px 20px;
+  gap: 40px;
+  width: 80vw;
+}
+
+.search__block {
+  background: white;
+  height: 40px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: space-between;
+}
+
+.search {
+  flex-grow: 1;
+  margin-right: 10px;
+  border: none;
+  font-family: "Inria Serif", serif;
+  font-size: 1.6rem;
+  color: #645555;
+}
+
+.dialog {
+  display: none;
+  position: fixed;
+  top: 25%;
+  border: none;
+  height: auto;
+  width: 300px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  z-index: 1000;
+}
+
+.dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.button__group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text__info {
+  min-width: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  font-family: "Inria Serif", serif;
+  color: #645555;
+}
+
+.table-container {
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  overflow-y: auto;
+  border-radius: 15px;
+  background-color: rgba(247, 244, 244, 0.8);
+}
+
+.books__list {
+  width: 100%;
+  table-layout: fixed;
+  font-family: "Inria Serif", serif;
+  color: #645555;
+}
+
+thead {
+  background-color: #cfcdcd;
+}
+
+th,
+td {
+  border: 1px solid white;
+  padding: 10px;
+  text-align: left;
+}
+
+tbody {
+  background-color: #e2dcdc;
+}
+
+.button__indesc {
+  display: flex;
+  gap: 10px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.button_delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding-right: 5px;
+  transition: transform 0.2s;
+}
+
+.button_info, .add, .filter {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+  padding: 3px;
+  transition: transform 0.2s;
+}
+
+.button_info:hover, .button_delete:hover, .add:hover, .filter:hover {
+  transform: scale(1.1);
+}
+
+.button_info i, .button_delete i, .add i, .filter i {
+  color: #645555;
+}
+
+.button_delete i {
+  color: #c02828;
+}
+
+/* Add Book Modal Styles */
+#addBookDialog {
+  width: 400px;
+  padding: 25px;
+}
+
+#addBookDialog h2 {
+  font-family: "Inria Serif", serif;
+  color: #645555;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form__group {
+  margin-bottom: 15px;
+}
+
+.form__group label {
+  display: block;
+  font-family: "Inria Serif", serif;
+  color: #645555;
+  margin-bottom: 5px;
+}
+
+.form__group input,
+.form__group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-family: "Inria Serif", serif;
+  font-size: 1rem;
+  color: #645555;
+}
+
+.form__group textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+.button__group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.button__group button {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Inria Serif", serif;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-button {
+  background-color: #645555;
+  color: white;
+}
+
+.confirm-button {
+  background-color: #c02828;
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #7a6868;
+}
+
+.confirm-button:hover {
+  background-color: #e92e2e;
+}
+
+.error-message {
+  color: #c02828;
+  font-size: 0.9rem;
+  margin-top: 4px;
+  display: none;
+}
+
+/* Конец блока стилей для index.pug */
+
+/* Начало блока стилей для book.pug */
+
+.container__book {
+  background: rgba(247, 244, 244, 0.8);
+  border-radius: 20px;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 75px;
+  width: 80vw;
+  height: 60vh;
+}
+
+.information {
+  max-width: 400px;
+}
+
+.information p {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.information p:first-child {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.information p::before {
+  margin-right: 8px;
+}
+
+/* Эмоджи для каждого конкретного параграфа */
+.information p:nth-child(2)::before {
+  content: "📚"; /* Эмоджи для заголовка */
+}
+
+.information p:nth-child(3)::before {
+  content: "✍️"; /* Эмоджи для автора */
+}
+
+.information p:nth-child(4)::before {
+  content: "🗓️"; /* Эмоджи для даты публикации */
+}
+
+.information p:nth-child(5)::before {
+  content: "📦"; /* Эмоджи для наличия книги */
+}
+
+.information p:nth-child(6)::before {
+  content: "👤"; /* Эмоджи для имени читателя */
+}
+
+.information p:nth-child(7)::before {
+  content: "🔙"; /* Эмоджи для даты возврата */
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.information {
+  font-family: "Inria Serif", serif;
+  color: #645555;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  width: calc(100% - 275px);
+  height: 400px;
+  border-radius: 15px;
+  overflow-y: auto;
+  margin: auto;
+  transition: transform 0.3s;
+}
+
+.information:hover {
+  transform: scale(1.02);
+}
+
+.description {
+  background-color: #fdfdfd;
+  width: calc(250px + 50px + (100% - 250px - 50px));
+  height: 400px;
+  border-radius: 15px;
+  overflow-y: auto;
+  font-family: "Inria Serif", serif;
+  color: #4a4a4a;
+  padding: 20px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid #ddd;
+  transition: transform 0.3s;
+  margin: auto;
+}
+
+.description:hover {
+  transform: scale(1.02); /* Увеличение элемента при наведении */
+}
+
+.book__button {
+  background-color: #c02828;
+  color: #fffff0;
+  height: 40px;
+  width: 200px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-family: "Inria Serif", serif;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.book__button:hover {
+  background-color: #e92e2e;
+}
+
+.book__button:active {
+  background-color: #c02828;
+}
+
+.book__button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.book__button:disabled:hover {
+  background-color: #cccccc;
+  transform: none;
+}
+
+.modal {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+.close {
+  cursor: pointer;
+  font-size: 24px;
+  float: right;
+  color: #c02828;
+}
+
+.close:hover {
+  color: #e92e2e;
+}
+
+/* Конец блока стилей для book.pug */
+
+/* Update Table Styles */
+.table-container {
+  flex: 1;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.books__list {
+  width: 100%;
+  table-layout: fixed;
+}
+
+/* Define minimum widths for columns */
+.books__list th:nth-child(1),
+.books__list td:nth-child(1) {
+  width: 20%;
+  min-width: 150px;
+}
+
+.books__list th:nth-child(2),
+.books__list td:nth-child(2) {
+  width: 20%;
+  min-width: 150px;
+}
+
+.books__list th:nth-child(3),
+.books__list td:nth-child(3) {
+  width: 15%;
+  min-width: 100px;
+}
+
+.books__list th:nth-child(4),
+.books__list td:nth-child(4) {
+  width: 45%;
+  min-width: 200px;
+}
+
+/* Update text overflow handling */
+.text__info {
+  min-width: 0;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Add horizontal scroll for narrow screens */
+@media screen and (max-width: 800px) {
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .books__list {
+    min-width: 600px; /* Minimum total table width */
+  }
+}
